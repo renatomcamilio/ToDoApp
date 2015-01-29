@@ -31,6 +31,13 @@
 }
 
 - (IBAction)addToDoButton:(id)sender {
+    ToDo *newToDoItem = [ToDo toDoWithTitle:self.toDoTitleField.text
+                                 andDetails:self.toDoDetailsField.text
+                                andPriority:5
+                               andCompleted:NO];
+    
+    [self.delegate addToDoItem:newToDoItem];
+    [self.navigationController popToViewController:self.previousViewController animated:YES];
 }
 
 @end

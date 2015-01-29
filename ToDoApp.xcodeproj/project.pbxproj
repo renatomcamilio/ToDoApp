@@ -52,6 +52,7 @@
 		880C09951A7994BD00E7C7E8 /* AddToDoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddToDoViewController.m; sourceTree = "<group>"; };
 		880C09971A79A0A900E7C7E8 /* ToDoTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToDoTableViewCell.h; sourceTree = "<group>"; };
 		880C09981A79A0A900E7C7E8 /* ToDoTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToDoTableViewCell.m; sourceTree = "<group>"; };
+		880C099F1A79E88D00E7C7E8 /* ToDoAddItemDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToDoAddItemDelegate.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +94,7 @@
 		880C09661A7982CE00E7C7E8 /* ToDoApp */ = {
 			isa = PBXGroup;
 			children = (
+				880C09A01A79E89700E7C7E8 /* Protocol */,
 				880C099B1A79A16E00E7C7E8 /* ViewController */,
 				880C099A1A79A14200E7C7E8 /* TableViewCell */,
 				880C09931A79838800E7C7E8 /* Model */,
@@ -161,6 +163,14 @@
 				880C09951A7994BD00E7C7E8 /* AddToDoViewController.m */,
 			);
 			name = ViewController;
+			sourceTree = "<group>";
+		};
+		880C09A01A79E89700E7C7E8 /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				880C099F1A79E88D00E7C7E8 /* ToDoAddItemDelegate.h */,
+			);
+			name = Protocol;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

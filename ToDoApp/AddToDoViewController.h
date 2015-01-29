@@ -7,7 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ToDo.h"
+#import "ToDoAddItemDelegate.h"
 
 @interface AddToDoViewController : UIViewController
+
+@property (nonatomic, weak) id<ToDoAddItemDelegate> delegate;
+@property (nonatomic, weak) UIViewController *previousViewController;
 
 @end

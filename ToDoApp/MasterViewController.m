@@ -10,8 +10,9 @@
 #import "DetailViewController.h"
 #import "ToDoTableViewCell.h"
 #import "ToDo.h"
+#import "AddToDoViewController.h"
 
-@interface MasterViewController ()
+@interface MasterViewController ()<ToDoAddItemDelegate>
 
 @property NSMutableArray *objects;
 
@@ -41,6 +42,10 @@
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
         ToDo *toDoItem = self.objects[indexPath.row];
         [[segue destinationViewController] setToDoItem:toDoItem];
+    } else if ([[segue identifier] isEqualToString:@"showAddToDo"]) {
+        AddToDoViewController *destinationViewController = (AddToDoViewController *)[segue destinationViewController];
+        [destinationViewController setDelegate:self];
+        [destinationViewController setPreviousViewController:self];
     }
 }
 
@@ -75,6 +80,12 @@
     } else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
     }
+}
+
+#pragma mark - Table View Manipulation
+
+- (void)addToDoItem:(ToDo *)toDo {
+    [self.objects addObject:toDo];
 }
 
 @end
