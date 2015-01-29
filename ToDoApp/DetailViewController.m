@@ -40,7 +40,7 @@
     if (self.toDoItem) {
         self.toDoTitleLabel.text = self.toDoItem.title;
         self.toDoDetailsLabel.text = self.toDoItem.details;
-        self.toDoPriorityLabel.text = [NSString stringWithFormat:@"Priority: %li", self.toDoItem.priority];
+        self.toDoPriorityLabel.text = [NSString stringWithFormat:@"Priority: %li", (long)self.toDoItem.priority];
     }
 }
 

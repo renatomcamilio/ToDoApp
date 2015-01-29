@@ -53,7 +53,7 @@
 - (void)setupCell:(ToDo *)toDoItem {
     self.toDoTitleLabel.text = toDoItem.title;
     self.toDoDetailsLabel.text = toDoItem.details;
-    self.toDoPriorityLabel.text = [NSString stringWithFormat:@"Priority: %li", toDoItem.priority];
+    self.toDoPriorityLabel.text = [NSString stringWithFormat:@"Priority: %li", (long)toDoItem.priority];
     self.toDoCompletedSwitch.on = [toDoItem isCompleted];
     
     [self didChangeToDoState:self.toDoCompletedSwitch];
