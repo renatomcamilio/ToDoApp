@@ -1,5 +1,5 @@
 //
-//  DetailViewController.h
+//  AddToDoViewController.h
 //  ToDoApp
 //
 //  Created by Renato Camilio on 1/28/15.
@@ -7,11 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "ToDo.h"
 
-@interface DetailViewController : UIViewController
-
-@property (strong, nonatomic) ToDo *toDoItem;
+@interface AddToDoViewController : UIViewController
 
 @end
-

@@ -1,5 +1,5 @@
 //
-//  DetailViewController.h
+//  ToDoTableViewCell.h
 //  ToDoApp
 //
 //  Created by Renato Camilio on 1/28/15.
@@ -9,9 +9,8 @@
 #import <UIKit/UIKit.h>
 #import "ToDo.h"
 
-@interface DetailViewController : UIViewController
+@interface ToDoTableViewCell : UITableViewCell
 
-@property (strong, nonatomic) ToDo *toDoItem;
+- (void)setupCell:(ToDo *)toDoItem;
 
 @end
-
