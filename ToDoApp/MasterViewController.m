@@ -28,7 +28,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
-    self.navigationItem.leftBarButtonItem = self.editButtonItem;
+//    self.navigationItem.leftBarButtonItem = self.editButtonItem;
     
     self.objects = [[ToDoListStorage sharedInstance] unarchiveToDoList];
 }
@@ -39,11 +39,13 @@
     if ([[segue identifier] isEqualToString:@"showDetail"]) {
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
         ToDo *toDoItem = self.objects[indexPath.row];
-        [[segue destinationViewController] setToDoItem:toDoItem];
+        [segue.destinationViewController setToDoItem:toDoItem];
     } else if ([[segue identifier] isEqualToString:@"showAddToDo"]) {
-        AddToDoViewController *destinationViewController = (AddToDoViewController *)[segue destinationViewController];
-        [destinationViewController setDelegate:self];
-        [destinationViewController setPreviousViewController:self];
+        UINavigationController *navigationController = [segue destinationViewController];
+        
+        if ([navigationController.topViewController isKindOfClass:[AddToDoViewController class]]) {
+            [(AddToDoViewController *)navigationController.topViewController setDelegate:self];
+        }
     }
 }
 

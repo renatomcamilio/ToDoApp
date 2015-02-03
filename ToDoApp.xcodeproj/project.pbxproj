@@ -19,6 +19,8 @@
 		880C09961A7994BD00E7C7E8 /* AddToDoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 880C09951A7994BD00E7C7E8 /* AddToDoViewController.m */; };
 		880C09991A79A0A900E7C7E8 /* ToDoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 880C09981A79A0A900E7C7E8 /* ToDoTableViewCell.m */; };
 		884B38281A804BAD00347AD9 /* ToDoListStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = 884B38271A804BAD00347AD9 /* ToDoListStorage.m */; };
+		884B382C1A80738400347AD9 /* checkbox-off.png in Resources */ = {isa = PBXBuildFile; fileRef = 884B382A1A80738400347AD9 /* checkbox-off.png */; };
+		884B382D1A80738400347AD9 /* checkbox-on.png in Resources */ = {isa = PBXBuildFile; fileRef = 884B382B1A80738400347AD9 /* checkbox-on.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +59,8 @@
 		884B38261A804BAD00347AD9 /* ToDoListStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToDoListStorage.h; sourceTree = "<group>"; };
 		884B38271A804BAD00347AD9 /* ToDoListStorage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToDoListStorage.m; sourceTree = "<group>"; };
 		884B38291A80504D00347AD9 /* ToDoListStorageDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToDoListStorageDelegate.h; sourceTree = "<group>"; };
+		884B382A1A80738400347AD9 /* checkbox-off.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "checkbox-off.png"; sourceTree = "<group>"; };
+		884B382B1A80738400347AD9 /* checkbox-on.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "checkbox-on.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,10 +103,12 @@
 			isa = PBXGroup;
 			children = (
 				880C09A01A79E89700E7C7E8 /* Protocol */,
-				880C099B1A79A16E00E7C7E8 /* ViewController */,
-				880C099A1A79A14200E7C7E8 /* TableViewCell */,
+				884B382F1A8163EC00347AD9 /* TODO - Detail */,
+				884B38301A81640100347AD9 /* TODO - Add */,
+				880C099B1A79A16E00E7C7E8 /* TODO - List */,
 				880C09931A79838800E7C7E8 /* Model */,
 				880C09771A7982CE00E7C7E8 /* Images.xcassets */,
+				884B382E1A8073B800347AD9 /* Images */,
 				880C09741A7982CE00E7C7E8 /* Main.storyboard */,
 				880C09791A7982CE00E7C7E8 /* LaunchScreen.xib */,
 				880C09671A7982CE00E7C7E8 /* Supporting Files */,
@@ -149,26 +155,23 @@
 			name = Model;
 			sourceTree = "<group>";
 		};
-		880C099A1A79A14200E7C7E8 /* TableViewCell */ = {
+		880C099A1A79A14200E7C7E8 /* TODO - TableViewCell */ = {
 			isa = PBXGroup;
 			children = (
 				880C09971A79A0A900E7C7E8 /* ToDoTableViewCell.h */,
 				880C09981A79A0A900E7C7E8 /* ToDoTableViewCell.m */,
 			);
-			name = TableViewCell;
+			name = "TODO - TableViewCell";
 			sourceTree = "<group>";
 		};
-		880C099B1A79A16E00E7C7E8 /* ViewController */ = {
+		880C099B1A79A16E00E7C7E8 /* TODO - List */ = {
 			isa = PBXGroup;
 			children = (
 				880C096E1A7982CE00E7C7E8 /* MasterViewController.h */,
 				880C096F1A7982CE00E7C7E8 /* MasterViewController.m */,
-				880C09711A7982CE00E7C7E8 /* DetailViewController.h */,
-				880C09721A7982CE00E7C7E8 /* DetailViewController.m */,
-				880C09941A7994BD00E7C7E8 /* AddToDoViewController.h */,
-				880C09951A7994BD00E7C7E8 /* AddToDoViewController.m */,
+				880C099A1A79A14200E7C7E8 /* TODO - TableViewCell */,
 			);
-			name = ViewController;
+			name = "TODO - List";
 			sourceTree = "<group>";
 		};
 		880C09A01A79E89700E7C7E8 /* Protocol */ = {
@@ -178,6 +181,33 @@
 				880C099F1A79E88D00E7C7E8 /* ToDoAddItemDelegate.h */,
 			);
 			name = Protocol;
+			sourceTree = "<group>";
+		};
+		884B382E1A8073B800347AD9 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				884B382A1A80738400347AD9 /* checkbox-off.png */,
+				884B382B1A80738400347AD9 /* checkbox-on.png */,
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
+		884B382F1A8163EC00347AD9 /* TODO - Detail */ = {
+			isa = PBXGroup;
+			children = (
+				880C09711A7982CE00E7C7E8 /* DetailViewController.h */,
+				880C09721A7982CE00E7C7E8 /* DetailViewController.m */,
+			);
+			name = "TODO - Detail";
+			sourceTree = "<group>";
+		};
+		884B38301A81640100347AD9 /* TODO - Add */ = {
+			isa = PBXGroup;
+			children = (
+				880C09941A7994BD00E7C7E8 /* AddToDoViewController.h */,
+				880C09951A7994BD00E7C7E8 /* AddToDoViewController.m */,
+			);
+			name = "TODO - Add";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -263,6 +293,8 @@
 				880C09761A7982CE00E7C7E8 /* Main.storyboard in Resources */,
 				880C097B1A7982CE00E7C7E8 /* LaunchScreen.xib in Resources */,
 				880C09781A7982CE00E7C7E8 /* Images.xcassets in Resources */,
+				884B382D1A80738400347AD9 /* checkbox-on.png in Resources */,
+				884B382C1A80738400347AD9 /* checkbox-off.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -21,7 +21,15 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    UIBarButtonItem *backBtn = [[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStylePlain target:self action:@selector(popSelf)];
+    backBtn.tintColor = [UIColor darkGrayColor];
+    self.navigationItem.leftBarButtonItem = backBtn;
+    
     [self configureView];
+}
+
+- (void)popSelf {
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 #pragma mark - Managing the detail item
@@ -37,6 +45,7 @@
 
 - (void)configureView {
     // Update the user interface for the detail item.
+    
     if (self.toDoItem) {
         self.toDoTitleLabel.text = self.toDoItem.title;
         self.toDoDetailsLabel.text = self.toDoItem.details;

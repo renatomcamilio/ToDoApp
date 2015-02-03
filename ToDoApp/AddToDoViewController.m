@@ -13,8 +13,6 @@
 @property (weak, nonatomic) IBOutlet UITextField *toDoTitleField;
 @property (weak, nonatomic) IBOutlet UITextField *toDoDetailsField;
 
-- (IBAction)addToDoButton:(id)sender;
-
 @end
 
 @implementation AddToDoViewController
@@ -30,14 +28,18 @@
     [self.view endEditing:YES];
 }
 
-- (IBAction)addToDoButton:(id)sender {
+- (IBAction)doneWasPressed:(id)sender {
     ToDo *newToDoItem = [ToDo toDoWithTitle:self.toDoTitleField.text
                                  andDetails:self.toDoDetailsField.text
                                 andPriority:5
                                andCompleted:NO];
     
     [self.delegate addToDoItem:newToDoItem];
-    [self.navigationController popToViewController:self.previousViewController animated:YES];
+    [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (IBAction)cancelWasPressed:(id)sender {
+    [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
 }
 
 @end

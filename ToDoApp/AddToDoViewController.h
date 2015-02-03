@@ -13,6 +13,5 @@
 @interface AddToDoViewController : UIViewController
 
 @property (nonatomic, weak) id<ToDoAddItemDelegate> delegate;
-@property (nonatomic, weak) UIViewController *previousViewController;
 
 @end
