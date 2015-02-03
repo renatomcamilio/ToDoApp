@@ -28,11 +28,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     self.navigationItem.leftBarButtonItem = self.editButtonItem;
-
-    ToDo *todo1 = [ToDo toDoWithTitle:@"Buy Milk" andDetails:@"When coming home, tonight @ 8h00 pm." andPriority:10 andCompleted:YES];
-    ToDo *todo2 = [ToDo toDoWithTitle:@"LHL Chess Game" andDetails:@"Make a move, take a shoot and post on Instagram!" andPriority:1 andCompleted:NO];
     
-    self.objects = [NSMutableArray arrayWithArray:@[todo1, todo2]];
+    [self unarchiveToDoList];
 }
 
 #pragma mark - Segues
@@ -86,6 +83,37 @@
 
 - (void)addToDoItem:(ToDo *)toDo {
     [self.objects addObject:toDo];
+    
+    NSLog(@"Did it work? %i", [self archiveToDoList]);
+}
+
+#pragma mark - Archiving & Unarchiving
+
+- (NSURL *)toDoListArchiveURL {
+    NSFileManager *defaultManager = [NSFileManager defaultManager];
+    NSArray *paths = [defaultManager URLsForDirectory:NSApplicationSupportDirectory inDomains:NSUserDomainMask];
+    return [paths lastObject];
+}
+
+- (BOOL)archiveToDoList {
+    NSFileManager *defaultManager = [NSFileManager defaultManager];
+    NSURL *toDoListFileURL = [self toDoListArchiveURL];
+    
+    if (![defaultManager fileExistsAtPath:toDoListFileURL.path]) {
+        NSData *toDoListArchiveData = [NSKeyedArchiver archivedDataWithRootObject:self.objects];
+        return [defaultManager createFileAtPath:toDoListFileURL.path contents:toDoListArchiveData attributes:nil];
+    } else {
+        return [NSKeyedArchiver archiveRootObject:self.objects toFile:toDoListFileURL.path];
+    }
+}
+
+- (void)unarchiveToDoList {
+    NSFileManager *sharedFM = [NSFileManager defaultManager];
+    if (![sharedFM fileExistsAtPath:[self toDoListArchiveURL].path]) {
+        self.objects = [[NSMutableArray alloc] init];
+    } else {
+        self.objects = [NSKeyedUnarchiver unarchiveObjectWithFile:[self toDoListArchiveURL].path];
+    }
 }
 
 @end
