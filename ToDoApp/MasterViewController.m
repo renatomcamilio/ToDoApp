@@ -11,6 +11,7 @@
 #import "ToDoTableViewCell.h"
 #import "ToDo.h"
 #import "AddToDoViewController.h"
+#import "ToDoListStorage.h"
 
 @interface MasterViewController ()<ToDoAddItemDelegate>
 
@@ -29,7 +30,7 @@
     // Do any additional setup after loading the view, typically from a nib.
     self.navigationItem.leftBarButtonItem = self.editButtonItem;
     
-    [self unarchiveToDoList];
+    self.objects = [[ToDoListStorage sharedInstance] unarchiveToDoList];
 }
 
 #pragma mark - Segues
@@ -60,7 +61,7 @@
     ToDo *toDo = self.objects[indexPath.row];
     ToDoTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
 
-    [cell setupCell:toDo];
+    [cell setToDoItem:toDo];
     
     return cell;
 }
@@ -84,36 +85,7 @@
 - (void)addToDoItem:(ToDo *)toDo {
     [self.objects addObject:toDo];
     
-    NSLog(@"Did it work? %i", [self archiveToDoList]);
-}
-
-#pragma mark - Archiving & Unarchiving
-
-- (NSURL *)toDoListArchiveURL {
-    NSFileManager *defaultManager = [NSFileManager defaultManager];
-    NSArray *paths = [defaultManager URLsForDirectory:NSApplicationSupportDirectory inDomains:NSUserDomainMask];
-    return [paths lastObject];
-}
-
-- (BOOL)archiveToDoList {
-    NSFileManager *defaultManager = [NSFileManager defaultManager];
-    NSURL *toDoListFileURL = [self toDoListArchiveURL];
-    
-    if (![defaultManager fileExistsAtPath:toDoListFileURL.path]) {
-        NSData *toDoListArchiveData = [NSKeyedArchiver archivedDataWithRootObject:self.objects];
-        return [defaultManager createFileAtPath:toDoListFileURL.path contents:toDoListArchiveData attributes:nil];
-    } else {
-        return [NSKeyedArchiver archiveRootObject:self.objects toFile:toDoListFileURL.path];
-    }
-}
-
-- (void)unarchiveToDoList {
-    NSFileManager *sharedFM = [NSFileManager defaultManager];
-    if (![sharedFM fileExistsAtPath:[self toDoListArchiveURL].path]) {
-        self.objects = [[NSMutableArray alloc] init];
-    } else {
-        self.objects = [NSKeyedUnarchiver unarchiveObjectWithFile:[self toDoListArchiveURL].path];
-    }
+    [[ToDoListStorage sharedInstance] archiveToDoList];
 }
 
 @end

@@ -10,6 +10,7 @@
 
 @interface ToDoTableViewCell ()
 
+@property (nonatomic, strong) ToDo *toDoItem;
 @property (weak, nonatomic) IBOutlet UILabel *toDoTitleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *toDoDetailsLabel;
 @property (weak, nonatomic) IBOutlet UILabel *toDoPriorityLabel;
@@ -29,10 +30,14 @@
 }
 
 - (void)didChangeToDoState:(id)sender {
-    self.toDoTitleLabel.attributedText = [self attributedStringWithString:self.toDoTitleLabel.text andToDoSwicth:(UISwitch *)sender];
-    self.toDoDetailsLabel.attributedText = [self attributedStringWithString:self.toDoDetailsLabel.text andToDoSwicth:(UISwitch *)sender];
-    self.toDoPriorityLabel.attributedText = [self attributedStringWithString:self.toDoPriorityLabel.text andToDoSwicth:(UISwitch *)sender];
-
+    UISwitch *completedSwitch = (UISwitch *)sender;
+    self.toDoTitleLabel.attributedText = [self attributedStringWithString:self.toDoItem.title andToDoSwicth:completedSwitch];
+    self.toDoDetailsLabel.attributedText = [self attributedStringWithString:self.toDoItem.details andToDoSwicth:completedSwitch];
+    self.toDoPriorityLabel.attributedText = [self attributedStringWithString:[[NSNumber numberWithInteger:self.toDoItem.priority] stringValue] andToDoSwicth:completedSwitch];
+    
+    self.toDoItem.completed = [completedSwitch isOn];
+    
+    [[ToDoListStorage sharedInstance] archiveToDoList];
 }
 
 - (NSMutableAttributedString *)attributedStringWithString:(NSString *)text andToDoSwicth:(UISwitch *)toDoSwitch {
@@ -50,11 +55,17 @@
     return attributedText;
 }
 
-- (void)setupCell:(ToDo *)toDoItem {
-    self.toDoTitleLabel.text = toDoItem.title;
-    self.toDoDetailsLabel.text = toDoItem.details;
-    self.toDoPriorityLabel.text = [NSString stringWithFormat:@"Priority: %li", (long)toDoItem.priority];
-    self.toDoCompletedSwitch.on = [toDoItem isCompleted];
+- (void)setToDoItem:(ToDo *)toDoItem {
+    _toDoItem = toDoItem;
+    
+    [self setupCell];
+}
+
+- (void)setupCell {
+    self.toDoTitleLabel.text = _toDoItem.title;
+    self.toDoDetailsLabel.text = _toDoItem.details;
+    self.toDoPriorityLabel.text = [NSString stringWithFormat:@"Priority: %li", (long)_toDoItem.priority];
+    self.toDoCompletedSwitch.on = [_toDoItem isCompleted];
     
     [self didChangeToDoState:self.toDoCompletedSwitch];
 }

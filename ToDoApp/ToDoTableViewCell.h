@@ -8,9 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import "ToDo.h"
+#import "ToDoListStorage.h"
 
 @interface ToDoTableViewCell : UITableViewCell
 
-- (void)setupCell:(ToDo *)toDoItem;
+- (void)setToDoItem:(ToDo *)toDoItem;
 
 @end
