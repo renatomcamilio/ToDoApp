@@ -1,5 +1,5 @@
 //
-//  ToDoTableViewCell.h
+//  AddToDoViewController.h
 //  ToDoApp
 //
 //  Created by Renato Camilio on 1/28/15.
@@ -7,11 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "ToDo.h"
-#import "ToDoListStorage.h"
+#import "Task.h"
+#import "CoreDataStack.h"
 
-@interface ToDoTableViewCell : UITableViewCell
-
-- (void)setToDoItem:(ToDo *)toDoItem;
+@interface AddTaskViewController : UIViewController
 
 @end

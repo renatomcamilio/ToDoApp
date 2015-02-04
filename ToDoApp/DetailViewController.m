@@ -10,9 +10,9 @@
 
 @interface DetailViewController ()
 
-@property (weak, nonatomic) IBOutlet UILabel *toDoTitleLabel;
-@property (weak, nonatomic) IBOutlet UILabel *toDoDetailsLabel;
-@property (weak, nonatomic) IBOutlet UILabel *toDoPriorityLabel;
+@property (weak, nonatomic) IBOutlet UILabel *taskTitleLabel;
+@property (weak, nonatomic) IBOutlet UILabel *taskDetailsLabel;
+@property (weak, nonatomic) IBOutlet UILabel *taskPriorityLabel;
 
 @end
 
@@ -34,9 +34,9 @@
 
 #pragma mark - Managing the detail item
 
-- (void)setToDoItem:(ToDo *)todoItem {
-    if (_toDoItem != todoItem) {
-        _toDoItem = todoItem;
+- (void)setTask:(Task *)task {
+    if (_task != task) {
+        _task = task;
             
         // Update the view.
         [self configureView];
@@ -46,10 +46,10 @@
 - (void)configureView {
     // Update the user interface for the detail item.
     
-    if (self.toDoItem) {
-        self.toDoTitleLabel.text = self.toDoItem.title;
-        self.toDoDetailsLabel.text = self.toDoItem.details;
-        self.toDoPriorityLabel.text = [NSString stringWithFormat:@"Priority: %li", (long)self.toDoItem.priority];
+    if (self.task) {
+        self.taskTitleLabel.text = self.task.title;
+        self.taskDetailsLabel.text = self.task.details;
+        self.taskPriorityLabel.text = [NSString stringWithFormat:@"Priority: %li", (long)self.task.priority];
     }
 }
 

@@ -6,16 +6,16 @@
 //  Copyright (c) 2015 Renato Camilio. All rights reserved.
 //
 
-#import "AddToDoViewController.h"
+#import "AddTaskViewController.h"
 
-@interface AddToDoViewController ()
+@interface AddTaskViewController ()
 
-@property (weak, nonatomic) IBOutlet UITextField *toDoTitleField;
-@property (weak, nonatomic) IBOutlet UITextField *toDoDetailsField;
+@property (weak, nonatomic) IBOutlet UITextField *taskTitleField;
+@property (weak, nonatomic) IBOutlet UITextField *taskDetailsField;
 
 @end
 
-@implementation AddToDoViewController
+@implementation AddTaskViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -29,12 +29,16 @@
 }
 
 - (IBAction)doneWasPressed:(id)sender {
-    ToDo *newToDoItem = [ToDo toDoWithTitle:self.toDoTitleField.text
-                                 andDetails:self.toDoDetailsField.text
-                                andPriority:5
-                               andCompleted:NO];
+    CoreDataStack *coreDataStack = [CoreDataStack sharedInstance];
+    Task *taskEntity = [NSEntityDescription insertNewObjectForEntityForName:NSStringFromClass([Task class]) inManagedObjectContext:coreDataStack.managedObjectContext];
     
-    [self.delegate addToDoItem:newToDoItem];
+    taskEntity.title = self.taskTitleField.text;
+    taskEntity.details = self.taskDetailsField.text;
+    taskEntity.priority = 5;
+    taskEntity.completed = NO;
+    
+    [coreDataStack saveContext];
+    
     [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
 }
 

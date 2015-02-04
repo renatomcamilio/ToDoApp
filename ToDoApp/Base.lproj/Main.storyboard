@@ -31,7 +31,7 @@
                         <color key="backgroundColor" red="1" green="0.92941176469999998" blue="0.74901960779999999" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="separatorColor" red="1" green="0.79920775509999997" blue="0.35016804759999998" alpha="0.37" colorSpace="calibratedRGB"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" rowHeight="70" id="m0d-ak-lc9" customClass="ToDoTableViewCell">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="TaskTableViewCell" rowHeight="70" id="m0d-ak-lc9" customClass="TaskTableViewCell">
                                 <rect key="frame" x="0.0" y="86" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="m0d-ak-lc9" id="d3P-M7-ByW">
@@ -81,9 +81,9 @@
                                 <color key="backgroundColor" red="1" green="0.92941176470588238" blue="0.74901960784313726" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <outlet property="completedCheckboxImageView" destination="OQ9-73-0yj" id="b1G-ug-VPZ"/>
-                                    <outlet property="toDoDetailsLabel" destination="5kf-Oy-MuS" id="E9R-Vq-8yO"/>
-                                    <outlet property="toDoPriorityLabel" destination="mPN-tn-cn2" id="aKr-iP-I9F"/>
-                                    <outlet property="toDoTitleLabel" destination="UdY-yO-PtO" id="Mqt-nB-oiq"/>
+                                    <outlet property="taskDetailsLabel" destination="5kf-Oy-MuS" id="jWa-Pp-rpQ"/>
+                                    <outlet property="taskPriorityLabel" destination="mPN-tn-cn2" id="LJM-xm-tMp"/>
+                                    <outlet property="taskTitleLabel" destination="UdY-yO-PtO" id="aqx-fZ-eDn"/>
                                     <segue destination="Ah7-4n-0Wa" kind="show" identifier="showDetail" id="jUr-3t-vfg"/>
                                 </connections>
                             </tableViewCell>
@@ -98,7 +98,7 @@
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="25r-6O-bew">
                             <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
-                                <segue destination="lGX-eL-MQn" kind="presentation" identifier="showAddToDo" modalTransitionStyle="flipHorizontal" id="9If-rZ-CU7"/>
+                                <segue destination="lGX-eL-MQn" kind="presentation" identifier="showAddTask" modalTransitionStyle="flipHorizontal" id="9If-rZ-CU7"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -110,7 +110,7 @@
         <!--Add TODO-->
         <scene sceneID="Pqq-7F-Nhx">
             <objects>
-                <viewController title="Add TODO" id="vXO-gv-xnV" customClass="AddToDoViewController" sceneMemberID="viewController">
+                <viewController title="Add TODO" id="vXO-gv-xnV" customClass="AddTaskViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="VVe-9R-KFb"/>
                         <viewControllerLayoutGuide type="bottom" id="JSu-4S-eib"/>
@@ -155,8 +155,8 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="toDoDetailsField" destination="6m3-Ad-P6U" id="4Mq-UK-kY5"/>
-                        <outlet property="toDoTitleField" destination="RsF-E1-FV9" id="n2B-Ob-A16"/>
+                        <outlet property="taskDetailsField" destination="6m3-Ad-P6U" id="I4b-Iu-dcA"/>
+                        <outlet property="taskTitleField" destination="RsF-E1-FV9" id="tPA-V3-tH5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Z6r-CJ-qwT" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -214,9 +214,9 @@
                     </view>
                     <navigationItem key="navigationItem" title="Detail" id="cra-N8-TIN"/>
                     <connections>
-                        <outlet property="toDoDetailsLabel" destination="yBQ-AB-LCF" id="cl2-NS-8ZU"/>
-                        <outlet property="toDoPriorityLabel" destination="umH-Ej-8Ov" id="IUH-DZ-Zb2"/>
-                        <outlet property="toDoTitleLabel" destination="vVv-jE-yro" id="mAb-Zg-oif"/>
+                        <outlet property="taskDetailsLabel" destination="yBQ-AB-LCF" id="XAK-Dl-Bqg"/>
+                        <outlet property="taskPriorityLabel" destination="umH-Ej-8Ov" id="Lme-n1-Dao"/>
+                        <outlet property="taskTitleLabel" destination="vVv-jE-yro" id="3V0-yw-Qcc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lrm-kH-fPn" sceneMemberID="firstResponder"/>

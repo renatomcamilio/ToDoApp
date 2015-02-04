@@ -8,14 +8,13 @@
 
 #import "MasterViewController.h"
 #import "DetailViewController.h"
-#import "ToDoTableViewCell.h"
-#import "ToDo.h"
-#import "AddToDoViewController.h"
-#import "ToDoListStorage.h"
+#import "TaskTableViewCell.h"
+#import "Task.h"
+#import "AddTaskViewController.h"
 
-@interface MasterViewController ()<ToDoAddItemDelegate>
+@interface MasterViewController ()<NSFetchedResultsControllerDelegate>
 
-@property NSMutableArray *objects;
+@property (nonatomic, strong) NSFetchedResultsController *fetchedResultsController;
 
 @end
 
@@ -28,9 +27,40 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
-//    self.navigationItem.leftBarButtonItem = self.editButtonItem;
     
-    self.objects = [[ToDoListStorage sharedInstance] unarchiveToDoList];
+    [self.fetchedResultsController performFetch:nil];
+}
+
+#pragma mark - FetchedResultsController
+
+- (NSFetchedResultsController *)fetchedResultsController {
+    if (_fetchedResultsController != nil) {
+        return _fetchedResultsController;
+    }
+    
+    CoreDataStack *coreDataStack = [CoreDataStack sharedInstance];
+    _fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:[self tasksFechtRequest]
+                                                                    managedObjectContext:coreDataStack.managedObjectContext
+                                                                      sectionNameKeyPath:nil
+                                                                               cacheName:nil];
+    _fetchedResultsController.delegate = self;
+    
+    return _fetchedResultsController;
+}
+
+- (NSFetchRequest *)tasksFechtRequest {
+    NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"Task"];
+    fetchRequest.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"title" ascending:YES]];
+    
+    return fetchRequest;
+}
+
+- (void)controller:(NSFetchedResultsController *)controller didChangeObject:(id)anObject atIndexPath:(NSIndexPath *)indexPath forChangeType:(NSFetchedResultsChangeType)type newIndexPath:(NSIndexPath *)newIndexPath {
+    if (type == NSFetchedResultsChangeDelete) {
+        [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+    } else if (type == NSFetchedResultsChangeUpdate) {
+        [self.tableView reloadData];
+    }
 }
 
 #pragma mark - Segues
@@ -38,14 +68,9 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([[segue identifier] isEqualToString:@"showDetail"]) {
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-        ToDo *toDoItem = self.objects[indexPath.row];
-        [segue.destinationViewController setToDoItem:toDoItem];
-    } else if ([[segue identifier] isEqualToString:@"showAddToDo"]) {
-        UINavigationController *navigationController = [segue destinationViewController];
         
-        if ([navigationController.topViewController isKindOfClass:[AddToDoViewController class]]) {
-            [(AddToDoViewController *)navigationController.topViewController setDelegate:self];
-        }
+        Task *task = [self.fetchedResultsController objectAtIndexPath:indexPath];
+        [(DetailViewController *)(segue.destinationViewController) setTask:task];
     }
 }
 
@@ -56,14 +81,15 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.objects.count;
+    id<NSFetchedResultsSectionInfo> sectionInfo = self.fetchedResultsController.sections[section];
+    return [[sectionInfo objects] count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    ToDo *toDo = self.objects[indexPath.row];
-    ToDoTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
+    Task *task = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    TaskTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([TaskTableViewCell class]) forIndexPath:indexPath];
 
-    [cell setToDoItem:toDo];
+    [cell setTask:task];
     
     return cell;
 }
@@ -75,19 +101,15 @@
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        [self.objects removeObjectAtIndex:indexPath.row];
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+        CoreDataStack *coreDataStack = [CoreDataStack sharedInstance];
+        Task *task = [self.fetchedResultsController objectAtIndexPath:indexPath];
+        [[coreDataStack managedObjectContext] deleteObject:task];
+        [coreDataStack saveContext];
+
+//        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
     } else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
     }
-}
-
-#pragma mark - Table View Manipulation
-
-- (void)addToDoItem:(ToDo *)toDo {
-    [self.objects addObject:toDo];
-    
-    [[ToDoListStorage sharedInstance] archiveToDoList];
 }
 
 @end

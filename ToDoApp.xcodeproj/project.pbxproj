@@ -15,12 +15,13 @@
 		880C09781A7982CE00E7C7E8 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 880C09771A7982CE00E7C7E8 /* Images.xcassets */; };
 		880C097B1A7982CE00E7C7E8 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 880C09791A7982CE00E7C7E8 /* LaunchScreen.xib */; };
 		880C09871A7982CE00E7C7E8 /* ToDoAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 880C09861A7982CE00E7C7E8 /* ToDoAppTests.m */; };
-		880C09921A79838200E7C7E8 /* ToDo.m in Sources */ = {isa = PBXBuildFile; fileRef = 880C09911A79838200E7C7E8 /* ToDo.m */; };
-		880C09961A7994BD00E7C7E8 /* AddToDoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 880C09951A7994BD00E7C7E8 /* AddToDoViewController.m */; };
-		880C09991A79A0A900E7C7E8 /* ToDoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 880C09981A79A0A900E7C7E8 /* ToDoTableViewCell.m */; };
-		884B38281A804BAD00347AD9 /* ToDoListStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = 884B38271A804BAD00347AD9 /* ToDoListStorage.m */; };
+		880C09961A7994BD00E7C7E8 /* AddTaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 880C09951A7994BD00E7C7E8 /* AddTaskViewController.m */; };
+		880C09991A79A0A900E7C7E8 /* TaskTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 880C09981A79A0A900E7C7E8 /* TaskTableViewCell.m */; };
 		884B382C1A80738400347AD9 /* checkbox-off.png in Resources */ = {isa = PBXBuildFile; fileRef = 884B382A1A80738400347AD9 /* checkbox-off.png */; };
 		884B382D1A80738400347AD9 /* checkbox-on.png in Resources */ = {isa = PBXBuildFile; fileRef = 884B382B1A80738400347AD9 /* checkbox-on.png */; };
+		884B38341A8187F900347AD9 /* ToDoApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 884B38321A8187F900347AD9 /* ToDoApp.xcdatamodeld */; };
+		884B383A1A81895700347AD9 /* Task.m in Sources */ = {isa = PBXBuildFile; fileRef = 884B38391A81895700347AD9 /* Task.m */; };
+		884B383D1A819DD900347AD9 /* CoreDataStack.m in Sources */ = {isa = PBXBuildFile; fileRef = 884B383C1A819DD900347AD9 /* CoreDataStack.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,18 +50,17 @@
 		880C09801A7982CE00E7C7E8 /* ToDoAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ToDoAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		880C09851A7982CE00E7C7E8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		880C09861A7982CE00E7C7E8 /* ToDoAppTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ToDoAppTests.m; sourceTree = "<group>"; };
-		880C09901A79838200E7C7E8 /* ToDo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToDo.h; sourceTree = "<group>"; };
-		880C09911A79838200E7C7E8 /* ToDo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToDo.m; sourceTree = "<group>"; };
-		880C09941A7994BD00E7C7E8 /* AddToDoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddToDoViewController.h; sourceTree = "<group>"; };
-		880C09951A7994BD00E7C7E8 /* AddToDoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddToDoViewController.m; sourceTree = "<group>"; };
-		880C09971A79A0A900E7C7E8 /* ToDoTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToDoTableViewCell.h; sourceTree = "<group>"; };
-		880C09981A79A0A900E7C7E8 /* ToDoTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToDoTableViewCell.m; sourceTree = "<group>"; };
-		880C099F1A79E88D00E7C7E8 /* ToDoAddItemDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToDoAddItemDelegate.h; sourceTree = "<group>"; };
-		884B38261A804BAD00347AD9 /* ToDoListStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToDoListStorage.h; sourceTree = "<group>"; };
-		884B38271A804BAD00347AD9 /* ToDoListStorage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToDoListStorage.m; sourceTree = "<group>"; };
-		884B38291A80504D00347AD9 /* ToDoListStorageDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToDoListStorageDelegate.h; sourceTree = "<group>"; };
+		880C09941A7994BD00E7C7E8 /* AddTaskViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddTaskViewController.h; sourceTree = "<group>"; };
+		880C09951A7994BD00E7C7E8 /* AddTaskViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddTaskViewController.m; sourceTree = "<group>"; };
+		880C09971A79A0A900E7C7E8 /* TaskTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TaskTableViewCell.h; sourceTree = "<group>"; };
+		880C09981A79A0A900E7C7E8 /* TaskTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TaskTableViewCell.m; sourceTree = "<group>"; };
 		884B382A1A80738400347AD9 /* checkbox-off.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "checkbox-off.png"; sourceTree = "<group>"; };
 		884B382B1A80738400347AD9 /* checkbox-on.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "checkbox-on.png"; sourceTree = "<group>"; };
+		884B38331A8187F900347AD9 /* ToDoApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ToDoApp.xcdatamodel; sourceTree = "<group>"; };
+		884B38381A81895700347AD9 /* Task.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Task.h; sourceTree = "<group>"; };
+		884B38391A81895700347AD9 /* Task.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Task.m; sourceTree = "<group>"; };
+		884B383B1A819DD900347AD9 /* CoreDataStack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CoreDataStack.h; path = ToDoApp/CoreDataStack.h; sourceTree = "<group>"; };
+		884B383C1A819DD900347AD9 /* CoreDataStack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CoreDataStack.m; path = ToDoApp/CoreDataStack.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,10 +102,10 @@
 		880C09661A7982CE00E7C7E8 /* ToDoApp */ = {
 			isa = PBXGroup;
 			children = (
-				880C09A01A79E89700E7C7E8 /* Protocol */,
 				884B382F1A8163EC00347AD9 /* TODO - Detail */,
 				884B38301A81640100347AD9 /* TODO - Add */,
 				880C099B1A79A16E00E7C7E8 /* TODO - List */,
+				884B383E1A819DDF00347AD9 /* CoreData */,
 				880C09931A79838800E7C7E8 /* Model */,
 				880C09771A7982CE00E7C7E8 /* Images.xcassets */,
 				884B382E1A8073B800347AD9 /* Images */,
@@ -147,21 +147,20 @@
 		880C09931A79838800E7C7E8 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				880C09901A79838200E7C7E8 /* ToDo.h */,
-				880C09911A79838200E7C7E8 /* ToDo.m */,
-				884B38261A804BAD00347AD9 /* ToDoListStorage.h */,
-				884B38271A804BAD00347AD9 /* ToDoListStorage.m */,
+				884B38321A8187F900347AD9 /* ToDoApp.xcdatamodeld */,
+				884B38381A81895700347AD9 /* Task.h */,
+				884B38391A81895700347AD9 /* Task.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
 		};
-		880C099A1A79A14200E7C7E8 /* TODO - TableViewCell */ = {
+		880C099A1A79A14200E7C7E8 /* Task - TableViewCell */ = {
 			isa = PBXGroup;
 			children = (
-				880C09971A79A0A900E7C7E8 /* ToDoTableViewCell.h */,
-				880C09981A79A0A900E7C7E8 /* ToDoTableViewCell.m */,
+				880C09971A79A0A900E7C7E8 /* TaskTableViewCell.h */,
+				880C09981A79A0A900E7C7E8 /* TaskTableViewCell.m */,
 			);
-			name = "TODO - TableViewCell";
+			name = "Task - TableViewCell";
 			sourceTree = "<group>";
 		};
 		880C099B1A79A16E00E7C7E8 /* TODO - List */ = {
@@ -169,18 +168,9 @@
 			children = (
 				880C096E1A7982CE00E7C7E8 /* MasterViewController.h */,
 				880C096F1A7982CE00E7C7E8 /* MasterViewController.m */,
-				880C099A1A79A14200E7C7E8 /* TODO - TableViewCell */,
+				880C099A1A79A14200E7C7E8 /* Task - TableViewCell */,
 			);
 			name = "TODO - List";
-			sourceTree = "<group>";
-		};
-		880C09A01A79E89700E7C7E8 /* Protocol */ = {
-			isa = PBXGroup;
-			children = (
-				884B38291A80504D00347AD9 /* ToDoListStorageDelegate.h */,
-				880C099F1A79E88D00E7C7E8 /* ToDoAddItemDelegate.h */,
-			);
-			name = Protocol;
 			sourceTree = "<group>";
 		};
 		884B382E1A8073B800347AD9 /* Images */ = {
@@ -204,10 +194,20 @@
 		884B38301A81640100347AD9 /* TODO - Add */ = {
 			isa = PBXGroup;
 			children = (
-				880C09941A7994BD00E7C7E8 /* AddToDoViewController.h */,
-				880C09951A7994BD00E7C7E8 /* AddToDoViewController.m */,
+				880C09941A7994BD00E7C7E8 /* AddTaskViewController.h */,
+				880C09951A7994BD00E7C7E8 /* AddTaskViewController.m */,
 			);
 			name = "TODO - Add";
+			sourceTree = "<group>";
+		};
+		884B383E1A819DDF00347AD9 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				884B383B1A819DD900347AD9 /* CoreDataStack.h */,
+				884B383C1A819DD900347AD9 /* CoreDataStack.m */,
+			);
+			name = CoreData;
+			path = ..;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -312,13 +312,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				880C09961A7994BD00E7C7E8 /* AddToDoViewController.m in Sources */,
-				880C09921A79838200E7C7E8 /* ToDo.m in Sources */,
-				880C09991A79A0A900E7C7E8 /* ToDoTableViewCell.m in Sources */,
-				884B38281A804BAD00347AD9 /* ToDoListStorage.m in Sources */,
+				884B383A1A81895700347AD9 /* Task.m in Sources */,
+				880C09961A7994BD00E7C7E8 /* AddTaskViewController.m in Sources */,
+				880C09991A79A0A900E7C7E8 /* TaskTableViewCell.m in Sources */,
 				880C096D1A7982CE00E7C7E8 /* AppDelegate.m in Sources */,
+				884B383D1A819DD900347AD9 /* CoreDataStack.m in Sources */,
 				880C09701A7982CE00E7C7E8 /* MasterViewController.m in Sources */,
 				880C096A1A7982CE00E7C7E8 /* main.m in Sources */,
+				884B38341A8187F900347AD9 /* ToDoApp.xcdatamodeld in Sources */,
 				880C09731A7982CE00E7C7E8 /* DetailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -522,6 +523,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		884B38321A8187F900347AD9 /* ToDoApp.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				884B38331A8187F900347AD9 /* ToDoApp.xcdatamodel */,
+			);
+			currentVersion = 884B38331A8187F900347AD9 /* ToDoApp.xcdatamodel */;
+			path = ToDoApp.xcdatamodeld;
+			sourceTree = SOURCE_ROOT;
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 880C095C1A7982CE00E7C7E8 /* Project object */;
 }
