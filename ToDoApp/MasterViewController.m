@@ -26,7 +26,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
     
     [self.fetchedResultsController performFetch:nil];
 }
@@ -58,7 +57,7 @@
 - (void)controller:(NSFetchedResultsController *)controller didChangeObject:(id)anObject atIndexPath:(NSIndexPath *)indexPath forChangeType:(NSFetchedResultsChangeType)type newIndexPath:(NSIndexPath *)newIndexPath {
     if (type == NSFetchedResultsChangeDelete) {
         [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (type == NSFetchedResultsChangeUpdate) {
+    } else if (type == NSFetchedResultsChangeUpdate || type == NSFetchedResultsChangeInsert) {
         [self.tableView reloadData];
     }
 }
