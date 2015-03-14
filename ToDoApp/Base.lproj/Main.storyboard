@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="rS3-R9-Ivy">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1510" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="rS3-R9-Ivy">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -24,7 +24,7 @@
         <!--Master-->
         <scene sceneID="VgW-fR-Quf">
             <objects>
-                <tableViewController title="Master" id="pGg-6v-bdr" customClass="MasterViewController" sceneMemberID="viewController">
+                <tableViewController title="Master" id="pGg-6v-bdr" customClass="TaskListViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="70" sectionHeaderHeight="22" sectionFooterHeight="22" id="mLL-gJ-YKr">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -124,8 +124,22 @@
                                 <attributedString key="attributedText"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Priority: 1" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O16-8s-v0m">
+                                <rect key="frame" x="16" y="133" width="73.5" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minimumValue="1" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="zer-Q9-OkL">
+                                <rect key="frame" x="120.5" y="129" width="94" height="29"/>
+                                <color key="backgroundColor" red="1" green="0.79920775509999997" blue="0.35016804759999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <action selector="taskPriorityValueChanged:" destination="vXO-gv-xnV" eventType="valueChanged" id="0q4-yU-cQR"/>
+                                </connections>
+                            </stepper>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" usesAttributedText="YES" borderStyle="roundedRect" placeholder="Details" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6m3-Ad-P6U">
-                                <rect key="frame" x="16" y="137" width="568" height="30"/>
+                                <rect key="frame" x="16" y="166" width="568" height="30"/>
                                 <attributedString key="attributedText"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
@@ -133,11 +147,17 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="6m3-Ad-P6U" firstAttribute="leading" secondItem="hXP-D9-Fvq" secondAttribute="leadingMargin" id="1ou-hd-wKy"/>
-                            <constraint firstItem="6m3-Ad-P6U" firstAttribute="top" secondItem="RsF-E1-FV9" secondAttribute="bottom" constant="16" id="6Mu-Jq-t5U"/>
+                            <constraint firstItem="zer-Q9-OkL" firstAttribute="top" secondItem="RsF-E1-FV9" secondAttribute="bottom" constant="8" id="30Y-AU-0Ep"/>
+                            <constraint firstItem="zer-Q9-OkL" firstAttribute="leading" secondItem="O16-8s-v0m" secondAttribute="trailing" constant="31" id="B2z-4e-p6R"/>
                             <constraint firstItem="RsF-E1-FV9" firstAttribute="top" secondItem="VVe-9R-KFb" secondAttribute="bottom" constant="27" id="MDu-AA-2WD"/>
+                            <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="zer-Q9-OkL" secondAttribute="trailing" constant="8" id="Nea-O7-4mU"/>
                             <constraint firstItem="RsF-E1-FV9" firstAttribute="trailing" secondItem="hXP-D9-Fvq" secondAttribute="trailingMargin" id="Rh9-me-8fH"/>
                             <constraint firstItem="RsF-E1-FV9" firstAttribute="leading" secondItem="hXP-D9-Fvq" secondAttribute="leadingMargin" id="S5B-5D-5Fp"/>
+                            <constraint firstItem="O16-8s-v0m" firstAttribute="leading" secondItem="hXP-D9-Fvq" secondAttribute="leadingMargin" id="bkW-Cz-I5h"/>
+                            <constraint firstItem="6m3-Ad-P6U" firstAttribute="top" secondItem="zer-Q9-OkL" secondAttribute="bottom" constant="8" id="cDf-g1-u5d"/>
+                            <constraint firstItem="JSu-4S-eib" firstAttribute="top" relation="greaterThanOrEqual" secondItem="6m3-Ad-P6U" secondAttribute="bottom" constant="8" id="d67-vC-JQQ"/>
                             <constraint firstItem="6m3-Ad-P6U" firstAttribute="trailing" secondItem="hXP-D9-Fvq" secondAttribute="trailingMargin" id="iVI-ms-9C7"/>
+                            <constraint firstItem="O16-8s-v0m" firstAttribute="top" secondItem="RsF-E1-FV9" secondAttribute="bottom" constant="12" id="vfu-VT-O9e"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Title" id="95E-ZI-ohq">
@@ -156,6 +176,8 @@
                     </navigationItem>
                     <connections>
                         <outlet property="taskDetailsField" destination="6m3-Ad-P6U" id="I4b-Iu-dcA"/>
+                        <outlet property="taskPriorityLabel" destination="O16-8s-v0m" id="7y4-eo-raJ"/>
+                        <outlet property="taskPriorityStepper" destination="zer-Q9-OkL" id="QDB-mM-BfE"/>
                         <outlet property="taskTitleField" destination="RsF-E1-FV9" id="tPA-V3-tH5"/>
                     </connections>
                 </viewController>
@@ -166,7 +188,7 @@
         <!--Detail-->
         <scene sceneID="Cn3-H9-jdl">
             <objects>
-                <viewController title="Detail" id="Ah7-4n-0Wa" customClass="DetailViewController" sceneMemberID="viewController">
+                <viewController title="Detail" id="Ah7-4n-0Wa" customClass="TaskDetailViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="cIm-e0-J51"/>
                         <viewControllerLayoutGuide type="bottom" id="a0L-h9-sNL"/>

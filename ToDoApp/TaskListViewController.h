@@ -1,5 +1,5 @@
 //
-//  DetailViewController.h
+//  MasterViewController.h
 //  ToDoApp
 //
 //  Created by Renato Camilio on 1/28/15.
@@ -7,11 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "Task.h"
 
-@interface DetailViewController : UIViewController
-
-@property (strong, nonatomic) Task *task;
+@interface TaskListViewController : UITableViewController
 
 @end
 

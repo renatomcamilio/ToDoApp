@@ -6,19 +6,19 @@
 //  Copyright (c) 2015 Renato Camilio. All rights reserved.
 //
 
-#import "MasterViewController.h"
-#import "DetailViewController.h"
+#import "TaskListViewController.h"
+#import "TaskDetailViewController.h"
 #import "TaskTableViewCell.h"
 #import "Task.h"
 #import "AddTaskViewController.h"
 
-@interface MasterViewController ()<NSFetchedResultsControllerDelegate>
+@interface TaskListViewController ()<NSFetchedResultsControllerDelegate>
 
 @property (nonatomic, strong) NSFetchedResultsController *fetchedResultsController;
 
 @end
 
-@implementation MasterViewController
+@implementation TaskListViewController
 
 - (void)awakeFromNib {
     [super awakeFromNib];
@@ -69,7 +69,7 @@
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
         
         Task *task = [self.fetchedResultsController objectAtIndexPath:indexPath];
-        [(DetailViewController *)(segue.destinationViewController) setTask:task];
+        [(TaskDetailViewController *)(segue.destinationViewController) setTask:task];
     }
 }
 

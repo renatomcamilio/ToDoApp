@@ -6,9 +6,9 @@
 //  Copyright (c) 2015 Renato Camilio. All rights reserved.
 //
 
-#import "DetailViewController.h"
+#import "TaskDetailViewController.h"
 
-@interface DetailViewController ()
+@interface TaskDetailViewController ()
 
 @property (weak, nonatomic) IBOutlet UILabel *taskTitleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *taskDetailsLabel;
@@ -16,7 +16,7 @@
 
 @end
 
-@implementation DetailViewController
+@implementation TaskDetailViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];

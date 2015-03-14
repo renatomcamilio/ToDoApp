@@ -9,16 +9,14 @@
 /* Begin PBXBuildFile section */
 		880C096A1A7982CE00E7C7E8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 880C09691A7982CE00E7C7E8 /* main.m */; };
 		880C096D1A7982CE00E7C7E8 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 880C096C1A7982CE00E7C7E8 /* AppDelegate.m */; };
-		880C09701A7982CE00E7C7E8 /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 880C096F1A7982CE00E7C7E8 /* MasterViewController.m */; };
-		880C09731A7982CE00E7C7E8 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 880C09721A7982CE00E7C7E8 /* DetailViewController.m */; };
+		880C09701A7982CE00E7C7E8 /* TaskListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 880C096F1A7982CE00E7C7E8 /* TaskListViewController.m */; };
+		880C09731A7982CE00E7C7E8 /* TaskDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 880C09721A7982CE00E7C7E8 /* TaskDetailViewController.m */; };
 		880C09761A7982CE00E7C7E8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 880C09741A7982CE00E7C7E8 /* Main.storyboard */; };
 		880C09781A7982CE00E7C7E8 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 880C09771A7982CE00E7C7E8 /* Images.xcassets */; };
 		880C097B1A7982CE00E7C7E8 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 880C09791A7982CE00E7C7E8 /* LaunchScreen.xib */; };
 		880C09871A7982CE00E7C7E8 /* ToDoAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 880C09861A7982CE00E7C7E8 /* ToDoAppTests.m */; };
 		880C09961A7994BD00E7C7E8 /* AddTaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 880C09951A7994BD00E7C7E8 /* AddTaskViewController.m */; };
 		880C09991A79A0A900E7C7E8 /* TaskTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 880C09981A79A0A900E7C7E8 /* TaskTableViewCell.m */; };
-		884B382C1A80738400347AD9 /* checkbox-off.png in Resources */ = {isa = PBXBuildFile; fileRef = 884B382A1A80738400347AD9 /* checkbox-off.png */; };
-		884B382D1A80738400347AD9 /* checkbox-on.png in Resources */ = {isa = PBXBuildFile; fileRef = 884B382B1A80738400347AD9 /* checkbox-on.png */; };
 		884B38341A8187F900347AD9 /* ToDoApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 884B38321A8187F900347AD9 /* ToDoApp.xcdatamodeld */; };
 		884B383A1A81895700347AD9 /* Task.m in Sources */ = {isa = PBXBuildFile; fileRef = 884B38391A81895700347AD9 /* Task.m */; };
 		884B383D1A819DD900347AD9 /* CoreDataStack.m in Sources */ = {isa = PBXBuildFile; fileRef = 884B383C1A819DD900347AD9 /* CoreDataStack.m */; };
@@ -40,10 +38,10 @@
 		880C09691A7982CE00E7C7E8 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		880C096B1A7982CE00E7C7E8 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		880C096C1A7982CE00E7C7E8 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		880C096E1A7982CE00E7C7E8 /* MasterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MasterViewController.h; sourceTree = "<group>"; };
-		880C096F1A7982CE00E7C7E8 /* MasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MasterViewController.m; sourceTree = "<group>"; };
-		880C09711A7982CE00E7C7E8 /* DetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
-		880C09721A7982CE00E7C7E8 /* DetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
+		880C096E1A7982CE00E7C7E8 /* TaskListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TaskListViewController.h; sourceTree = "<group>"; };
+		880C096F1A7982CE00E7C7E8 /* TaskListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TaskListViewController.m; sourceTree = "<group>"; };
+		880C09711A7982CE00E7C7E8 /* TaskDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TaskDetailViewController.h; sourceTree = "<group>"; };
+		880C09721A7982CE00E7C7E8 /* TaskDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TaskDetailViewController.m; sourceTree = "<group>"; };
 		880C09751A7982CE00E7C7E8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		880C09771A7982CE00E7C7E8 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		880C097A1A7982CE00E7C7E8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -54,8 +52,6 @@
 		880C09951A7994BD00E7C7E8 /* AddTaskViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddTaskViewController.m; sourceTree = "<group>"; };
 		880C09971A79A0A900E7C7E8 /* TaskTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TaskTableViewCell.h; sourceTree = "<group>"; };
 		880C09981A79A0A900E7C7E8 /* TaskTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TaskTableViewCell.m; sourceTree = "<group>"; };
-		884B382A1A80738400347AD9 /* checkbox-off.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "checkbox-off.png"; sourceTree = "<group>"; };
-		884B382B1A80738400347AD9 /* checkbox-on.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "checkbox-on.png"; sourceTree = "<group>"; };
 		884B38331A8187F900347AD9 /* ToDoApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ToDoApp.xcdatamodel; sourceTree = "<group>"; };
 		884B38381A81895700347AD9 /* Task.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Task.h; sourceTree = "<group>"; };
 		884B38391A81895700347AD9 /* Task.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Task.m; sourceTree = "<group>"; };
@@ -102,10 +98,9 @@
 		880C09661A7982CE00E7C7E8 /* ToDoApp */ = {
 			isa = PBXGroup;
 			children = (
-				884B382F1A8163EC00347AD9 /* TODO - Detail */,
-				884B38301A81640100347AD9 /* TODO - Add */,
-				880C099B1A79A16E00E7C7E8 /* TODO - List */,
-				884B383E1A819DDF00347AD9 /* CoreData */,
+				884B383E1A819DDF00347AD9 /* CoreData Manager */,
+				884B382F1A8163EC00347AD9 /* Controller */,
+				88E61B891AB4222F000C3B8A /* View */,
 				880C09931A79838800E7C7E8 /* Model */,
 				880C09771A7982CE00E7C7E8 /* Images.xcassets */,
 				884B382E1A8073B800347AD9 /* Images */,
@@ -154,60 +149,43 @@
 			name = Model;
 			sourceTree = "<group>";
 		};
-		880C099A1A79A14200E7C7E8 /* Task - TableViewCell */ = {
-			isa = PBXGroup;
-			children = (
-				880C09971A79A0A900E7C7E8 /* TaskTableViewCell.h */,
-				880C09981A79A0A900E7C7E8 /* TaskTableViewCell.m */,
-			);
-			name = "Task - TableViewCell";
-			sourceTree = "<group>";
-		};
-		880C099B1A79A16E00E7C7E8 /* TODO - List */ = {
-			isa = PBXGroup;
-			children = (
-				880C096E1A7982CE00E7C7E8 /* MasterViewController.h */,
-				880C096F1A7982CE00E7C7E8 /* MasterViewController.m */,
-				880C099A1A79A14200E7C7E8 /* Task - TableViewCell */,
-			);
-			name = "TODO - List";
-			sourceTree = "<group>";
-		};
 		884B382E1A8073B800347AD9 /* Images */ = {
 			isa = PBXGroup;
 			children = (
-				884B382A1A80738400347AD9 /* checkbox-off.png */,
-				884B382B1A80738400347AD9 /* checkbox-on.png */,
 			);
 			name = Images;
 			sourceTree = "<group>";
 		};
-		884B382F1A8163EC00347AD9 /* TODO - Detail */ = {
+		884B382F1A8163EC00347AD9 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				880C09711A7982CE00E7C7E8 /* DetailViewController.h */,
-				880C09721A7982CE00E7C7E8 /* DetailViewController.m */,
-			);
-			name = "TODO - Detail";
-			sourceTree = "<group>";
-		};
-		884B38301A81640100347AD9 /* TODO - Add */ = {
-			isa = PBXGroup;
-			children = (
+				880C09711A7982CE00E7C7E8 /* TaskDetailViewController.h */,
+				880C09721A7982CE00E7C7E8 /* TaskDetailViewController.m */,
 				880C09941A7994BD00E7C7E8 /* AddTaskViewController.h */,
 				880C09951A7994BD00E7C7E8 /* AddTaskViewController.m */,
+				880C096E1A7982CE00E7C7E8 /* TaskListViewController.h */,
+				880C096F1A7982CE00E7C7E8 /* TaskListViewController.m */,
 			);
-			name = "TODO - Add";
+			name = Controller;
 			sourceTree = "<group>";
 		};
-		884B383E1A819DDF00347AD9 /* CoreData */ = {
+		884B383E1A819DDF00347AD9 /* CoreData Manager */ = {
 			isa = PBXGroup;
 			children = (
 				884B383B1A819DD900347AD9 /* CoreDataStack.h */,
 				884B383C1A819DD900347AD9 /* CoreDataStack.m */,
 			);
-			name = CoreData;
+			name = "CoreData Manager";
 			path = ..;
+			sourceTree = "<group>";
+		};
+		88E61B891AB4222F000C3B8A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				880C09971A79A0A900E7C7E8 /* TaskTableViewCell.h */,
+				880C09981A79A0A900E7C7E8 /* TaskTableViewCell.m */,
+			);
+			name = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -293,8 +271,6 @@
 				880C09761A7982CE00E7C7E8 /* Main.storyboard in Resources */,
 				880C097B1A7982CE00E7C7E8 /* LaunchScreen.xib in Resources */,
 				880C09781A7982CE00E7C7E8 /* Images.xcassets in Resources */,
-				884B382D1A80738400347AD9 /* checkbox-on.png in Resources */,
-				884B382C1A80738400347AD9 /* checkbox-off.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -317,10 +293,10 @@
 				880C09991A79A0A900E7C7E8 /* TaskTableViewCell.m in Sources */,
 				880C096D1A7982CE00E7C7E8 /* AppDelegate.m in Sources */,
 				884B383D1A819DD900347AD9 /* CoreDataStack.m in Sources */,
-				880C09701A7982CE00E7C7E8 /* MasterViewController.m in Sources */,
+				880C09701A7982CE00E7C7E8 /* TaskListViewController.m in Sources */,
 				880C096A1A7982CE00E7C7E8 /* main.m in Sources */,
 				884B38341A8187F900347AD9 /* ToDoApp.xcdatamodeld in Sources */,
-				880C09731A7982CE00E7C7E8 /* DetailViewController.m in Sources */,
+				880C09731A7982CE00E7C7E8 /* TaskDetailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

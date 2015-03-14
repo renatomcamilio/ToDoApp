@@ -12,6 +12,8 @@
 
 @property (weak, nonatomic) IBOutlet UITextField *taskTitleField;
 @property (weak, nonatomic) IBOutlet UITextField *taskDetailsField;
+@property (weak, nonatomic) IBOutlet UILabel *taskPriorityLabel;
+@property (weak, nonatomic) IBOutlet UIStepper *taskPriorityStepper;
 
 @end
 
@@ -28,13 +30,17 @@
     [self.view endEditing:YES];
 }
 
+- (IBAction)taskPriorityValueChanged:(id)sender {
+    self.taskPriorityLabel.text = [NSString stringWithFormat:@"Priority: %i", (int)self.taskPriorityStepper.value];
+}
+
 - (IBAction)doneWasPressed:(id)sender {
     CoreDataStack *coreDataStack = [CoreDataStack sharedInstance];
     Task *taskEntity = [NSEntityDescription insertNewObjectForEntityForName:NSStringFromClass([Task class]) inManagedObjectContext:coreDataStack.managedObjectContext];
     
     taskEntity.title = self.taskTitleField.text;
     taskEntity.details = self.taskDetailsField.text;
-    taskEntity.priority = 5;
+    taskEntity.priority = self.taskPriorityStepper.value;
     taskEntity.completed = NO;
     
     [coreDataStack saveContext];
