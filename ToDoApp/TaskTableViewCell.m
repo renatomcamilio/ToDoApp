@@ -7,6 +7,7 @@
 //
 
 #import "TaskTableViewCell.h"
+#import "CoreDataStack.h"
 
 @interface TaskTableViewCell ()
 
@@ -30,19 +31,23 @@
 }
 
 - (void)awakeFromNib {
-    // Initialization code
-    
     self.completedCheckboxImageView.userInteractionEnabled = YES;
     UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(taskStatusHasChanged)];
     [self.completedCheckboxImageView addGestureRecognizer:tapGesture];
 }
+
+#pragma mark - Update Task status
 
 - (void)taskStatusHasChanged {
     self.task.completed =  !self.task.completed;
     
     [self updateTaskTextLabels];
     [self updateCheckboxImage];
+    
+    [[CoreDataStack sharedInstance] saveContext];
 }
+
+#pragma mark - View appearance
 
 - (void)updateTaskTextLabels {
     self.taskTitleLabel.attributedText = [self attributedStringWithString:self.task.title];
@@ -69,6 +74,8 @@
     NSString *checkboxImageName = ([self.task isCompleted]) ? @"checkbox-on" : @"checkbox-off";
     self.completedCheckboxImageView.image = [UIImage imageNamed:checkboxImageName];
 }
+
+#pragma mark - Initial Setup
 
 - (void)setupCell {
     self.taskTitleLabel.text = _task.title;

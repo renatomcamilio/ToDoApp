@@ -30,11 +30,9 @@
     [self.view endEditing:YES];
 }
 
-- (IBAction)taskPriorityValueChanged:(id)sender {
-    self.taskPriorityLabel.text = [NSString stringWithFormat:@"Priority: %i", (int)self.taskPriorityStepper.value];
-}
+#pragma mark - Task creation
 
-- (IBAction)doneWasPressed:(id)sender {
+- (void)createTask {
     CoreDataStack *coreDataStack = [CoreDataStack sharedInstance];
     Task *taskEntity = [NSEntityDescription insertNewObjectForEntityForName:NSStringFromClass([Task class]) inManagedObjectContext:coreDataStack.managedObjectContext];
     
@@ -44,6 +42,16 @@
     taskEntity.completed = NO;
     
     [coreDataStack saveContext];
+}
+
+#pragma mark - User interaction events
+
+- (IBAction)taskPriorityValueChanged:(id)sender {
+    self.taskPriorityLabel.text = [NSString stringWithFormat:@"Priority: %i", (int)self.taskPriorityStepper.value];
+}
+
+- (IBAction)doneWasPressed:(id)sender {
+    [self createTask];
     
     [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
 }
