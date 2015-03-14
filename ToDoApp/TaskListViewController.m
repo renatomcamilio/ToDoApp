@@ -49,7 +49,8 @@
 
 - (NSFetchRequest *)tasksFechtRequest {
     NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"Task"];
-    fetchRequest.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"title" ascending:YES]];
+    fetchRequest.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"priority" ascending:NO],
+                                     [NSSortDescriptor sortDescriptorWithKey:@"title" ascending:YES]];
     
     return fetchRequest;
 }
